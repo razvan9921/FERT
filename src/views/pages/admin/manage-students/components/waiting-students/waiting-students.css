@@ -1,0 +1,47 @@
+
+.wainting-persons-section {
+    width: 400px;
+}
+.waiting-person {
+    background-color: white;
+    border: 1px solid #e6ecf5;
+    border-radius: 3px;
+    padding: 10px;
+    height: 80vh;
+}
+
+.list-persons {
+    background-color: white;
+    border: 1px solid #e6ecf5;
+    border-radius: 3px;
+    padding: 10px;
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.person p {
+    cursor: pointer;
+}
+
+.person .accept, .person .ban {
+    visibility: hidden;
+    
+}
+
+.person .accept {
+    color: #0f9aee;
+}
+
+.person .ban {
+    color: #ff3c7e;
+}
+
+.person:hover i{
+    visibility: visible;
+    cursor: pointer;
+}
+
+.person:hover p {
+    color: #0f9aee;
+}
+

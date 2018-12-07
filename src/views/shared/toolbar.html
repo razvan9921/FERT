@@ -1,0 +1,21 @@
+<template>
+  <section class="toolbar-page display-flex border-bottom white-background">
+    <section class="logo-section border-right">
+      <picture>
+        <source media="(max-width: 600px)" srcset="http://localhost/FERT-%2520EasyFeedbackInRealTime/src/views/images/favicon.ico">
+        <img src="http://localhost/FERT-%2520EasyFeedbackInRealTime/src/views/images/logo.png" class="logo">
+      </picture>
+
+    </section>
+    <div class="toolbar display-flex space-between align-center">
+      <i onclick="toggleMenu('menu-page')" class="fas fa-align-justify icon-default-size icon-toggle-menu"></i>
+      <div class="user-info margin-right-50 display-flex align-center">
+        <div class="display-flex flex-column">
+          <h4 class="name">Ilie Popescu</h4>
+          <p class="email">ilie@popescu.com</p>
+        </div>
+        <i class="fas fa-angle-down margin-left-10"></i>
+      </div>
+    </div>
+  </section>
+</template>

@@ -1,0 +1,32 @@
+.left{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.right:hover{
+  background-color: #6699ff;
+  cursor: pointer;
+  color: white;
+}
+
+.left:hover{
+  cursor: pointer;
+  color: white;
+  background-color: #6699ff;
+}

@@ -1,0 +1,31 @@
+<template>
+    <aside id="menu-page" class="menu-page white-background border-right">
+        <nav class="links-page padding-top-50 padding-bottom-50">
+            <ul>
+                <li class="link-page display-flex space-between align-center padding-bottom-10 padding-top-10">
+                    <div class="link-element display-flex align-center">
+                        <i class="fas fa-home margin-right-10 margin-left-20"></i>
+                        <p onclick="document.location.href='http://localhost/FERT-%2520EasyFeedbackInRealTime/src/views/pages/professor/home/home.html'">Pagina
+                            principala</p>
+                    </div>
+                </li>
+                <li onclick="toggleHiddenClass('courses');rotateIcon('coursesIcon')" class="link-page display-flex flex-column space-between align-center padding-bottom-10 padding-top-10">
+                    <div class="display-flex align-center space-between width-100">
+                        <div class="link-element display-flex align-center">
+                            <i class="fas fas fa-chalkboard link-icon margin-right-10 margin-left-20"></i>
+                            <p>Cursuri</p>
+                        </div>
+                        <i id="coursesIcon" class="fas fa-angle-right link-icon margin-right-20 rotate"></i>
+                    </div>
+
+
+                </li>
+                <ul id="courses" class="hidden margin-top-20 width-100 display-flex flex-column">
+                    <li class="submenu-link padding-left-50 padding-bottom-10 padding-top-5" onclick="document.location.href='http://localhost/FERT-%2520EasyFeedbackInRealTime/src/views/pages/professor/courses/new-course/index.html'">Adauga
+                        un nou curs</li>
+                    <li class="submenu-link padding-left-50 padding-bottom-10 padding-top-5" onclick="document.location.href='http://localhost/FERT-%2520EasyFeedbackInRealTime/src/views/pages/professor/courses/schedule/schedule.html'">Orar</li>
+                </ul>
+            </ul>
+        </nav>
+    </aside>
+</template>

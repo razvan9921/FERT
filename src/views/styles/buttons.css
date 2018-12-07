@@ -1,0 +1,31 @@
+
+
+.button {
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: 1px;
+    font-size: 13px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    max-height: 40px;
+    transition: all 0.3s ease-in-out;
+}
+
+.button-info {
+    background-color: #0f9aee;
+    border-color: #0f9aee;
+    color: #ffffff;
+}
+
+.button-submit {
+    background-color: #37c936;
+    border-color:#37c936;
+    color: #ffffff;
+}
+
+.button-danger {
+    background-color: #ff3c7e;
+    border-color:#ff3c7e;
+    color: #ffffff;
+}
