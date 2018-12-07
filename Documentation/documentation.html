@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html property="http://scholarly-html.org/schtml" xmlns="http://www.w3.org/1999/xhtml" lang="ro" xml:lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FERT - Easy feedback in real-time</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h3 property="schema:title">FERT - Easy feedback in real time-time</h3>
+    <h3 property="schema:creator">Vladut Morosanu, Razvan Hurbea</h3>
+    <section>
+        <h2>Tipuri de utilizatori</h2>
+        <ul property="schema:type">
+            <li>Student - cel ce va putea da feedback in timp real profesorilor pentru o intelegere ma
+                buna a cursului cu pricina.</li>
+            <li>Profesor - cel ce face management-ul cursului si are grija ca totul sa decurga conform
+                normelor cursului.</li>
+            <li>Administrator - cel care inregistreaza salile in aplicatgie si gestioneaza conturile
+                studentilor si a profesorilor</li>
+        </ul>
+    </section>
+    <h2 property="schema:user">Profesorul:</h2>
+    <ul property="schema:list">
+        <li property="schema:account">Isi face cont si asteapta sa fie aprobat de catre Administator.</li>
+        <li property="schema:login">Dupa ce ii se aproba contul acesta se va putea autentifica in aplicatie (nu poate
+            folosi aplicatia daca nu
+            are cont).</li>
+        <li property="schema:make">Poate creea o un curs unde se vor alatura studentii prezenti.</li>
+        <li property="schema:uniqueKey">Atunci cand profesorul acceseaza cursul creeat anterior, poate generea o cheie
+            unica pe care o va spune
+            stundetilor prezenti la curs (se elimina posibilitatea accesarii aplicatiei de catre studentii “intrusi”).</li>
+        <li property="schema:add">Atunci cand se creeaza un curs in aplicatie, poate adauga alti profesori.</li>
+        <li property="schema:config">Profesorul isi poate configura setarile pentru acea lasa de curs:
+            <ul property="schema:subtype">
+                <li>numarul de voturi pentru ca o intrebare sa fie afisata in lista cu intrebari primite (procent sau
+                    numar).</li>
+                <li>numarul de feedback-uri negative pentru ca un subiect sa fie reluat. (procent sau numar). </li>
+            </ul>
+        </li>
+        <li property="schema:list">Profesorul vede lista cursurilor si poate selecta pe oricare dintre ele. </li>
+        <li property="schema:question">Dupa ce a deschis un curs, va vedea lista de intrebari puse de catre studentii
+            aflati la acel curs. </li>
+        <li property="schema:number">Va vedea numarul de stundenti conectati. </li>
+        <li>Va vedea cheia de acces catre acel curs. </li>
+        <li>poate adauga intrebari pentru studenti si poate ajusta:
+            <ul property="schema:subtype">
+                <li>numarul de raspunsuri corecte pentru o intrebare pentru a se asigura ca a fost inteleasa (procent).
+                </li>
+                <li>timpul disponibil pentru ca studentii sa poata raspunde la acel quiz. </li>
+                <li>va vedea lista cu studentii care au raspuns la o intrebare. </li>
+            </ul>
+        <li>Are un orar unde vor fi vizivile toate cursurile acestia</li>
+    </ul>
+
+    <h2 property="schema:user">Studentul:</h2>
+    <ul property="schema:list">
+        <li property="schema:account">Isi face cont si asteapta sa fie aprobat de catre Administator.</li>
+        <li property="schema:login">Dupa ce a fost aprobat contul de catre Administrator, se autentifica in aplicatie
+            (nu poate folosi aplicatia daca nu are cont).
+            are cont).</li>
+        <li property="schema:courses">Vede lista de cursuri si va putea accesa o sala de curs pe baza cheii prezentate
+            de
+            catre profesor. </li>
+        <li property="schema:question">Poate plasa o intrebare catre profesor iar aceasta va fi afisata studentilor
+            pentru a putea fi votata</li>
+        <li property="schema:question">Poate vedea lista de intrebari si le va putea vota pentru a aparea in lista
+            profesorului. </li>
+        <li>Va vedea intrebarile profesorului si va putea raspunde la acestea (nu se va putea
+            raspune anonim la intrebarile profesorului). </li>
+        <li>Are un orar unde va vedea lista cu toate cursurile unde este inclus.</li>
+    </ul>
+
+    <h2 property="schema:user">Administatorul:</h2>
+    <ul property="schema:list">
+        <li property="schema:account">Are un cont si se autentifica in aplicatie.</li>
+        <li property="schema:login">Poate aproba conturile profesorilor din lista de asteptare. </li>
+        <li property="schema:login">Poate bloca conturile profesorilor. </li>
+        <li property="schema:login">Poate elimina conturile profesorilor din lista de conturi blocate. </li>
+        <li property="schema:courses">Poate aproba conturile studentilor din lista de asteptare.</li>
+        <li property="schema:courses">Poate bloca conturile studentilor.</li>
+        <li property="schema:courses">Poate elimina conturile studentilor din lista de conturi blocate.</li>
+        <li property="schema:question">Administreaza salile de curs. Poate adauga noi sali de curs, sterge sau modifica
+            sali existente.</li>
+        <li property="schema:question">Poate vedea lista de intrebari si le va putea vota pentru a aparea in lista
+            profesorului. </li>
+        <li>Va vedea intrebarile profesorului si va putea raspunde la acestea (nu se va putea
+            raspune anonim la intrebarile profesorului). </li>
+        <li>Are un orar unde va vedea lista cu toate cursurile unde este inclus.</li>
+    </ul>
+
+    <h2 property="schema:blueprint">Design-ul aplicatiei:</h2>
+    <h3 property="schema:blueprint">Design-ul meniului:</h3>
+    <img class="img" src="menu.png">
+
+    <h3 property="schema:blueprint">Pagina administratorului pentru gestionarea studentilor:</h3>
+    <img class="img" src="admin1.png">
+
+    <h3 property="schema:blueprint">Pagina administratorului pentru gestionarea profesorilor:</h3>
+    <img class="img" src="admin2.png">
+
+    <h3 property="schema:blueprint">Pagina administratorului pentru gestionarea salilor de curs:</h3>
+    <img class="img" src="admin3.png">
+
+    <h3 property="schema:blueprint">Pagina profesorului pentru Dashboard:</h3>
+    <img class="img" src="profesor1.png">
+
+    <h3 property="schema:blueprint">Pagina profesorului pentru adaugarea unui curs:</h3>
+    <img class="img" src="profesor2.png">
+
+    <h3 property="schema:blueprint">Pagina profesorului pentru poate vedea toate cursurile adaugate:</h3>
+    <img class="img" src="profesor3.png">
+
+    <h3 property="schema:blueprint">Pagina profesorului pentru un curs activ:</h3>
+    <img class="img" src="profesor4.png">
+
+    <h3 property="schema:blueprint">Prima pagina a studentului:</h3>
+    <img class="img" src="student0.png">
+
+    <h3 property="schema:blueprint">Prima studentului pentru a vedea un curs:</h3>
+    <img class="img" src="student1.png">
+
+    <h3 property="schema:blueprint">Prima studentului pentru a vedea toate cursurile la care este asignat:</h3>
+    <img class="img" src="student3.png">
+
+    <h3 property="schema:blueprint">Prima cursului unde studentul este asignat:</h3>
+    <img class="img" src="student5.png">
+
+
+    <h2 property="schema:blueprint">Structura proiectului:</h2>
+    <ul property="schema:description">Front-end-ul va avea 3 parti principale:
+        <li>autentificarea studentului, inregistrarea acestuia la un curs si interactiunea cu profesorul</li>
+        <li>autentificarea profesorului, crearea cursurilor, punerea de intrebari si evaluarea raspunrusilor trimise de catre studenti</li>
+        <li>autentificarea administratorului si gestionarea studentilor si a profesorilor</li>
+    </ul>
+    <ul property="schema:description">Back-end-ul va fi unul de tip serverless folosind serviciu FireBase:
+        <li>va contine API-uri ce comunica cu baza de date si returneaza obiectele catre Front-End prin paradigma REST API </li>
+    </ul>
+
+    <h2 property="schema:technology">Tehonologii folosite:</h2>
+    <p property="schema:description">Pentru creearea proiectului se va folosi HTML 5 si CSS3 la nivel de Front-End iar
+        pentru Back-End se va folosi serviciu FireBase de la Google.
+        Interfata proiectului va fi separata pe componente, sectiuni din pagina ce vor functiona independent de aplicatie.
+        De exemplu, o componenta va avea fisierul HTML si style-ul CCS propriu, de asemenea va avea un fisier JavaScript in cazul in care
+        fi nevoie pentru comunicarea cu Back-End-ul.
+    </p>
+
+    <h2 property="schema:user">Scenarii de utilizare:</h2>
+    <p property="schema:user">Studentul acceseaza aplicatia si va fi directionat catre pagina de autentificare.
+        Daca acesta nu are un cont, va completa formularul de inregistrare si va
+        astepta pana cand contul va fi aprobat de catre un administrator. Dupa autentificare, va fi redirectionat catre
+        pagina "Acasa". Pe aceasta pagina vor putea fi vizibile
+        cele mai importante informatii, precum cursurile in desfasurare, cursurile din ziua respectiva si cursurile
+        urmatoare. Daca acesta detine o cheie de acces catre un curs,
+        o va putea folosi in pagina "Adauga cheie". Acesta va fi redirectionat catre pagina cursului in desfasurare
+        unde poate vedea lista cu intrebari ce astapta a fi votate,
+        poate adauga intrebari in cazul in care nu a inteles anumite asptecte si va putea raspunde la intrebarile
+        profesorului. Acesta mai poate accesa pagina destinata orarului unde
+        va vedea toate cursurile la care acesta este adaugat.
+    </p>
+
+    <p property="schema:user">Profesorul acceseaza aplicatia si va fi directionat catre pagina de
+        autentificare. Daca acesta nu detine un cont, va completa formularul de inregistrare si va astepta
+        pana administratorul ii va aproba contul. Dupa autentificare, va fi redirectionat catre pagina acasa, unde va
+        vedea cele mai importante informatii, precum, cursurile acestia si
+        cateva statistici importante (media studentilor la cursuri si numarul de raspunsuri corecte la intrebarile
+        acestuia). Profesorul poate accesa pagina pentru a creea un nou curs
+        si il va putea configura in functie de necesitati. Dupa trimiterea formularului, nou curs va fi vizibil in
+        pagina destinata orarului acestuia. Pagina "Orar" detine o lista cu toate
+        cursurile profesorului. Un curs poate fi accesat fie din pagina orarului, fie de pe pagina "Acasa" si fa fi
+        redirectionat catre pagina cursul. Pe aceasta pagina, va vedea lista cu intrebari
+        adaugate si votate de catre studenti, poate adauga o intrebare si poate configura cursul precedent. De
+        asemenea, profesorul poate adauga alti profesori coordonatori catre un curs.
+    </p>
+
+    <p property="schema:user">Administratorul detine un cont si va putea accesa aplicatia. Acesta va avea la dispozitie 3 pagini. Va putea
+        accesa pagina destinata gestionarii studentilor. Acesta va putea aproba conturile in asteptare,
+        va putea bloca studenti sau va putea sterge conturile din lista de conturi blocate. Va putea accesa pagina
+        destinata gestionarii profesorilor unde va avea la dispozitie aceleasi actiuni. Administatorul este
+        responsabil si cu gestionarea salilor de curs. Acesta poate adauga noi sali de curs, poate sterge sau poate
+        modifica salile curente.
+    </p>
+
+    <h3 property="schema:blueprint">Diagramele arhitecturale:</h3>
+    <img class="img" src="architecture2.jpg">
+
+    <h3 property="schema:blueprint">Studenti:</h3>
+    <img class="img" src="architecture1.jpg">
+    
+    <h3 property="schema:blueprint">Profesori:</h3>
+    <img class="img" src="architecture3.jpg">
+
+    <h3 property="schema:blueprint">Administrator:</h3>
+    <img class="img" src="architecture4.jpg">
+    
+
+    <h2 property="schema:database">Arhitecura Bazei de Date:</h2>
+    <h3>Tabela Studenti:</h3>
+    <ul property="schema:list">
+        <li>id : INT [PK]</li>
+        <li>lastname: VARCHAR(30)</li>
+        <li>firstname: VARCHAR(30)</li>
+        <li>email : VARCHAR(50) [UNIQUE]</li>
+        <li>group : VARCHAR(50)</li>
+        <li>password : VARCHAR(32)</li>
+        <li>rights : INT</li>
+        <li>date_reqister TIMESTAMP</li>
+    </ul>
+
+    <h3>Tabela Profesori:</h3>
+    <ul property="schema:list">
+        <li>id : INT [PK]</li>
+        <li>lastname: VARCHAR(30)</li>
+        <li>firstname: VARCHAR(30)</li>
+        <li>email : VARCHAR(50) [UNIQUE]</li>
+        <li>password : VARCHAR(32)</li>
+        <li>rights : INT</li>
+        <li>date_reqister TIMESTAMP</li>
+    </ul>
+
+    <h3>Tabela Administratori:</h3>
+    <ul property="schema:list">
+        <li>id : INT [PK]</li>
+        <li>lastname: VARCHAR(30)</li>
+        <li>firstname: VARCHAR(30)</li>
+        <li>email : VARCHAR(50) [UNIQUE]</li>
+        <li>password : VARCHAR(32)</li>
+        <li>rights : INT</li>
+        <li>date_reqister TIMESTAMP</li>
+    </ul>
+
+    <h3>Tabela Cursuri:</h3>
+    <ul property="schema:list">Tabela Cursuri:
+        <li>id : INT [PK]</li>
+        <li>course_name: VARCHAR(30)</li>
+        <li>professor_id: INT [FK]</li>
+        <li>date_course : TIMESTAMP</li>
+        <li>classroom : VARCHAR(32)</li>
+        <li>rights : INT</li>
+    </ul>
+
+    <h3>Tabela Intrebari:</h3>
+    <ul property="schema:list">Tabela Intrebari:
+        <li>id : INT [PK]</li>
+        <li>question_description: VARCHAR(300)</li>
+        <li>course_id: INT [FK]</li>
+        <li>date_course : TIMESTAMP</li>
+        <li>nr_understand : INT</li>
+        <li>nr_not_understand : INT</li>
+        <li>deleted : INT</li>
+        <li>date_created TIMESTAMP</li>
+    </ul>
+
+    <h3>Tabela Quiz-uri profesori:</h3>
+    <ul property="schema:list">Tabela Quiz-uri profesori:
+        <li>id : INT [PK]</li>
+        <li>question_description: VARCHAR(300)</li>
+        <li>course_id: INT [FK]</li>
+        <li>date_course : TIMESTAMP</li>
+        <li>solution1 : VARCHAR(300)</li>
+        <li>solution2 : VARCHAR(300)</li>
+        <li>solution3 : VARCHAR(300)</li>
+        <li>solution4 : VARCHAR(300)</li>
+        <li>deleted : INT</li>
+        <li>date_created TIMESTAMP</li>
+    </ul>
+</body>
+
+</html>
