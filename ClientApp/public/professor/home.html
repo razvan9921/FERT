@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>FERT</title>
+	<link rel="icon" href=../images/favicon.ico"> <link rel="stylesheet" href="../styles/shared.css">
+	<link rel="stylesheet" href="../styles/toolbar.css">
+	<link rel="stylesheet" href="../styles/menu.css">
+	<link rel="stylesheet" href="../styles/margins-and-paddings.css">
+	<link rel="stylesheet" href="../styles/flex.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+	<link rel="stylesheet" href="../styles/colors.css">
+	<link rel="stylesheet" href="../styles/professor.css">
+</head>
+
+<body>
+	<div>
+		<section class="toolbar-page display-flex border-bottom white-background">
+			<section class="logo-section border-right">
+				<picture>
+					<source media="(max-width: 600px)" srcset="../images/favicon.ico">
+					<img src="../images/logo.png" class="logo">
+				</picture>
+
+			</section>
+			<div class="toolbar display-flex space-between align-center">
+				<i onclick="toggleMenu('menu-page')" class="fas fa-align-justify icon-default-size icon-toggle-menu"></i>
+				<div class="user-info margin-right-50 display-flex align-center">
+					<div class="display-flex flex-column">
+						<h4 class="name">Ilie Popescu</h4>
+						<p class="email">ilie@popescu.com</p>
+					</div>
+					<i class="fas fa-angle-down margin-left-10"></i>
+				</div>
+			</div>
+		</section>
+	</div>
+
+
+
+	<div>
+		<aside id="menu-page" class="menu-page white-background border-right">
+			<nav class="links-page padding-top-50 padding-bottom-50">
+				<ul>
+					<li class="link-page display-flex space-between align-center padding-bottom-10 padding-top-10">
+						<div class="link-element display-flex align-center">
+							<i class="fas fa-home margin-right-10 margin-left-20"></i>
+							<p onclick="document.location.href='home.html'">Acasa</p>
+						</div>
+					</li>
+					<li class="link-page display-flex space-between align-center padding-bottom-10 padding-top-10">
+						<div class="link-element display-flex align-center">
+							<i class="fas fa-home margin-right-10 margin-left-20"></i>
+							<p onclick="document.location.href='new-course.html'">Adauga un nou curs</p>
+						</div>
+					</li>
+
+					<li class="link-page display-flex space-between align-center padding-bottom-10 padding-top-10">
+						<div class="link-element display-flex align-center">
+							<i class="fas fa-home margin-right-10 margin-left-20"></i>
+							<p onclick="document.location.href='schedule.html'">Orar</p>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+	</div>
+	<div id="toolbar"></div>
+	<div id="menu"></div>
+
+	<div class="content">
+		<div class="home-sections display-flex">
+			<div id="myCourses">
+				<div class="courses-page">
+					<h3 class="margin-left-10 margin-top-10">Cursurile mele</h3>
+					<div class="courses display-flex flex-wrap">
+						<div class="course margin-10 padding-10">
+							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea
+								aplicatiilor Web la nivel de client</h4>
+							<div class="display-flex space-between margin-top-5">
+								<p>Sala C112</p>
+								<p class="margin-left-10">Miercuri de la ora 12:30</p>
+							</div>
+
+						</div>
+
+						<div class="course margin-10 padding-10">
+							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
+							<div class="display-flex space-between margin-top-5">
+								<p>Sala C112</p>
+								<p class="margin-left-10">Miercuri de la ora 12:30</p>
+							</div>
+
+						</div>
+
+						<div class="course margin-10 padding-10">
+							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
+							<div class="display-flex space-between margin-top-5">
+								<p>Sala C112</p>
+								<p class="margin-left-10">Miercuri de la ora 12:30</p>
+							</div>
+
+						</div>
+
+						<div class="course margin-10 padding-10">
+							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
+							<div class="display-flex space-between margin-top-5">
+								<p>Sala C112</p>
+								<p class="margin-left-10">Miercuri de la ora 12:30</p>
+							</div>
+
+						</div>
+
+						<div class="course margin-10 padding-10">
+							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
+							<div class="display-flex space-between margin-top-5">
+								<p>Sala C112</p>
+								<p class="margin-left-10">Miercuri de la ora 12:30</p>
+							</div>
+
+						</div>
+
+						<div class="course margin-10 padding-10">
+							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
+							<div class="display-flex space-between margin-top-5">
+								<p>Sala C112</p>
+								<p class="margin-left-10">Miercuri de la ora 12:30</p>
+							</div>
+
+						</div>
+						<div class="course margin-10 padding-10">
+							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
+							<div class="display-flex space-between margin-top-5">
+								<p>Sala C112</p>
+								<p class="margin-left-10">Miercuri de la ora 12:30</p>
+							</div>
+
+						</div>
+
+						<div class="course margin-10 padding-10">
+							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
+							<div class="display-flex space-between margin-top-5">
+								<p>Sala C112</p>
+								<p class="margin-left-10">Miercuri de la ora 12:30</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="statistics">
+				<div class="statistics-section margin-top-20 margin-right-20">
+					<h3>Statistici</h3>
+					<div class="statistic margin-top-10 display-flex flex-column align-center justify-center">
+						<h4>Media studentilor care au inteles:</h4>
+						<p class="margin-top-20">Tehnologii web: 67%</p>
+						<p class="margin-top-10">Dezvoltarea aplicatiolor: 67%</p>
+						<p class="margin-top-10">Ceretare web: 17%</p>
+					</div>
+					<div class="statistic margin-top-10 display-flex flex-column align-center justify-center margin-bottom-20">
+						<h4 class="text-center">Media numarului de studenti la cursuri:</h4>
+						<p class="margin-top-20">Tehnologii web: 83</p>
+						<p class="margin-top-10">Dezvoltarea aplicatiolor: 56</p>
+						<p class="margin-top-10">Ceretare web: 15</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+
+</html>

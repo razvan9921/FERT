@@ -1,0 +1,309 @@
+.courses-page {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.courses {
+  max-width: 70vw;
+}
+
+.course {
+  background-color: white;
+  width: 350px;
+  height: 65px;
+  border: 1px solid #e6ecf5;
+  border-radius: 3px;
+}
+
+@media only screen and (max-width: 600px) {
+  .courses-page {
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+
+  .courses {
+    max-width: 100vw;
+  }
+}
+
+.course-info-section {
+  background-color: white;
+  border: 1px solid #e6ecf5;
+  border-radius: 3px;
+  padding: 30px;
+}
+
+.course-info-section {
+  background-color: white;
+  border: 1px solid #e6ecf5;
+  border-radius: 3px;
+  padding: 30px;
+}
+
+.question-section {
+  width: 97%;
+}
+
+.questions-card {
+  width: 400px;
+  height: 60vh;
+  overflow-y: scroll;
+  cursor: pointer;
+}
+
+.questions-card .question {
+  border: 1px solid #e6ecf5;
+  border-radius: 3px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.setting-course {
+  width: 400px;
+  height: 70vh;
+}
+
+a {
+  margin: 5px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.ongoing {
+  background-color: green;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 300px;
+}
+
+.left {
+  background-color: yellow;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 300px;
+}
+
+.finished {
+  background-color: black;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 300px;
+}
+
+h2,
+h1,
+h3 {
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.details {
+  margin-top: 50px;
+  height: 300px;
+}
+
+.btn {
+  color: white;
+  height: 50px;
+  width: 100%;
+  background-color: green;
+}
+
+
+.schedule-section {
+  width: 95%;
+}
+
+.schedule {
+  background-color: white;
+  border: 1px solid #e6ecf5;
+  border-radius: 3px;
+  padding: 10px;
+  width: 100%;
+  min-width: 700px;
+  height: auto;
+  overflow-x: scroll;
+}
+
+.schedule .line {
+  width: 100%;
+}
+
+
+.schedule .row {
+  width: 200px;
+  height: 50px;
+  min-width: 120px;
+}
+
+.schedule .row p {
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.choose-week {
+  width: 120px;
+}
+
+.btn {
+  color: white;
+  height: 50px;
+  width: 100%;
+  margin-top: 50px;
+  background-color: #6699ff;
+}
+
+.btn:hover {
+  background-color: green;
+  color: white;
+}
+
+.form-control {
+  margin-top: 50px;
+}
+
+
+.btn {
+  color: white;
+  border-radius: 3px;
+  height: 100%;
+  width: 90px;
+  margin-top: 8px;
+  margin-left: 3px;
+  background-color: #6699ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+}
+
+#submit:hover {
+  background-color: green;
+}
+
+.form-control {
+  margin-top: 50px;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.title-center {
+  padding-right: 200px;
+}
+
+.subtitle {
+  display: flex;
+  justify-content: center;
+  padding-right: 100px;
+}
+
+.question {
+  width: 97%;
+  height: 100px;
+  margin: 20px 0px 0px 20px;
+  display: flex;
+}
+
+.area {
+  height: 100%;
+  width: 100%;
+}
+
+.questions-container {
+  width: 100%;
+  height: 468px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.prof-question {
+  width: 100%;
+}
+
+.student-question {
+  width: 100%;
+}
+
+.student-question-card {
+  margin-top: 20px;
+  margin-left: 20px;
+  height: 110px;
+  width: 97%;
+  border: 1px solid red;
+}
+
+.student-question-card-empty {
+  margin-top: 20px;
+  margin-left: 20px;
+  height: 20px;
+  width: 97%;
+}
+
+.prof-question-card {
+  margin-top: 20px;
+  margin-left: 20px;
+  height: 110px;
+  width: 97%;
+  border: 1px solid #6699ff;
+}
+
+.answers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bttn {
+  color: white;
+  border-radius: 3px;
+  width: 49%;
+  margin-top: 3px;
+  margin-left: 4px;
+  background-color: #6699ff;
+  display: flex;
+  justify-content: flex-start;
+  padding: 3px;
+  align-items: center;
+}
+
+.bttn2 {
+  color: white;
+  border-radius: 3px;
+  width: 49%;
+  height: 50px;
+  margin-top: 3px;
+  margin-left: 4px;
+  background-color: #6699ff;
+  display: flex;
+  justify-content: flex-start;
+  padding: 3px;
+  align-items: center;
+}
+
+.bttn:hover {
+  background-color: green;
+}
+
+.bttn2:hover {
+  background-color: pink;
+}
+
+.votes {
+  display: flex;
+  flex-direction: column;
+}

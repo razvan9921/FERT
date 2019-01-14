@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>FERT</title>
+	<link rel="icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="../styles/shared.css">
+	<link rel="stylesheet" href="../styles/toolbar.css">
+	<link rel="stylesheet" href="../styles/menu.css">
+	<link rel="stylesheet" href="../styles/buttons.css">
+	<link rel="stylesheet" href="../styles/margins-and-paddings.css">
+	<link rel="stylesheet" href="../styles/flex.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+	<link rel="stylesheet" href="../styles/colors.css">
+	<link rel="stylesheet" href="../styles/professor.css">
+</head>
+
+<body>
+	<div id="toolbar">
+		<section class="toolbar-page display-flex border-bottom white-background">
+			<section class="logo-section border-right">
+				<picture>
+					<source media="(max-width: 600px)" srcset="../images/favicon.ico">
+					<img src="../images/logo.png" class="logo">
+				</picture>
+
+			</section>
+			<div class="toolbar display-flex space-between align-center">
+				<i onclick="toggleMenu('menu-page')" class="fas fa-align-justify icon-default-size icon-toggle-menu"></i>
+				<div class="user-info margin-right-50 display-flex align-center">
+					<div class="display-flex flex-column">
+						<h4 class="name">Ilie Popescu</h4>
+						<p class="email">ilie@popescu.com</p>
+					</div>
+					<i class="fas fa-angle-down margin-left-10"></i>
+				</div>
+			</div>
+		</section>
+
+	</div>
+	<div id="menu">
+		<aside id="menu-page" class="menu-page white-background border-right">
+			<nav class="links-page padding-top-50 padding-bottom-50">
+				<ul>
+					<li class="link-page display-flex space-between align-center padding-bottom-10 padding-top-10">
+						<div class="link-element display-flex align-center">
+							<i class="fas fa-home margin-right-10 margin-left-20"></i>
+							<p onclick="document.location.href='home.html'">Acasa</p>
+						</div>
+					</li>
+					<li class="link-page display-flex space-between align-center padding-bottom-10 padding-top-10">
+						<div class="link-element display-flex align-center">
+							<i class="fas fa-home margin-right-10 margin-left-20"></i>
+							<p onclick="document.location.href='new-course.html'">Adauga un nou curs</p>
+						</div>
+					</li>
+
+					<li class="link-page display-flex space-between align-center padding-bottom-10 padding-top-10">
+						<div class="link-element display-flex align-center">
+							<i class="fas fa-home margin-right-10 margin-left-20"></i>
+							<p onclick="document.location.href='schedule.html'">Orar</p>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+	</div>
+
+	<div class="content">
+		<div id="newCourse">
+			<div class="margin-20">
+				<h4>Adauga un nou curs</h4>
+				<div class="new-course margin-top-10">
+					<form>
+						<div class="display-flex flex-wrap space-between align-start">
+							<div class="info-new-course">
+								<div class="display-flex flex-column ">
+									<label>Nume curs</label>
+									<input type="text" placeholder="Nume curs">
+								</div>
+								<div class="display-flex flex-column margin-top-10">
+									<label>Descriere</label>
+									<textarea class="description" type="text" placeholder="Descriere" rows="5"></textarea>
+								</div>
+								<div class="display-flex space-between margin-top-10">
+									<div class="oneFromThree">
+										<label>Data</label>
+										<input type="text" placeholder="Data">
+									</div>
+									<div class="oneFromThree">
+										<label>Ora</label>
+										<input type="text" placeholder="Ora">
+									</div>
+									<div class="oneFromThree">
+										<label>Sala</label>
+										<input type="text" placeholder="Sala">
+									</div>
+								</div>
+								<button type="button" onclick="openModal()" class="button button-info margin-top-10">Editeaza profesori</button>
+							</div>
+							<div class="setting-new-course">
+								<div class="display-flex flex-column">
+									<label>Numarul de raspunsuri negative ale unei intrebari</label>
+									<div class="display-flex align-center">
+										<input class="percentage" type="number" min="0" max="100">
+										<p class="margin-left-5">% dintre studentii prezenti</p>
+									</div>
+
+								</div>
+								<div class="display-flex flex-column margin-top-10">
+									<label>Numarul de raspunsuri corecte ale unui quiz</label>
+									<div class="display-flex align-center">
+										<input class="percentage" type="number" min="0" max="100">
+										<p class="margin-left-5">% dintre studentii prezenti</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="display-flex flex-end align-center">
+							<button type="submit" class="button button-danger margin-top-10">Anuleaza</button>
+							<span class="margin-left-5 margin-right-5"> sau </span>
+							<button type="submit" class="button button-submit margin-top-10">Salveaza</button>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="editProfessorsModal">
+			<div id="myModal" class="modal">
+
+				<!-- Modal content -->
+				<div class="modal-content">
+					<span onclick="closeModal()" class="close">&times;</span>
+					<h4>Editeaza profesori colaboratori</h4>
+					<div class="edit-professors-section margin-top-10">
+						<div class="find-professors">
+							<h5>Adauga profesori:</h5>
+							<input type="text" placeholder="Cauta profesori">
+							<div class="list-professors">
+								<div class="professor padding-5 display-flex space-between">
+									<p class="name">Ana Blandiana</p>
+									<i class="fas fa-plus"></i>
+								</div>
+								<div class=" professor padding-5 display-flex space-between">
+									<p class="name">Ana Blandiana</p>
+									<i class="fas fa-plus"></i>
+								</div>
+								<div class="professor padding-5 display-flex space-between">
+									<p class="name">Ana Blandiana</p>
+									<i class="fas fa-plus"></i>
+								</div>
+								<div class=" professor padding-5 display-flex space-between">
+									<p class="name">Ana Blandiana</p>
+									<i class="fas fa-plus"></i>
+								</div>
+								<div class="professor padding-5 display-flex space-between">
+									<p class="name">Ana Blandiana</p>
+									<i class="fas fa-plus"></i>
+								</div>
+							</div>
+						</div>
+						<div class="actual-professors">
+							<h5>Profesori colaboratori:</h5>
+							<input type="text" placeholder="Cauta profesori">
+							<div class="list-professors">
+								<div class="professor padding-5 display-flex space-between">
+									<p class="name">Ana Blandiana</p>
+									<i class="fas fa-minus"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="buttons-modal display-flex flex-end align-center margin-right-10">
+						<button onclick="closeModal()" type="submit" class="button button-danger margin-top-10">Anuleaza</button>
+						<span class="margin-left-5 margin-right-5"> sau </span>
+						<button onclick="closeModal()" type="submit" class="button button-submit margin-top-10">Salveaza</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script src="../../../../javascript/menu-interaction.js"></script>
+	<script src="../../../../javascript/modal-interaction.js"></script>
+</body>
+
+</html>
