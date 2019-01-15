@@ -14,9 +14,19 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 	<link rel="stylesheet" href="../styles/colors.css">
 	<link rel="stylesheet" href="../styles/professor.css">
+
+
+	<script defer src="/__/firebase/5.7.3/firebase-app.js"></script>
+	<!-- include only the Firebase features as you need -->
+	<script defer src="/__/firebase/5.7.3/firebase-auth.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-database.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-messaging.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-firestore.js"></script>
+	<!-- initialize the SDK after all desired features are loaded -->
+	<script defer src="/__/firebase/init.js"></script>
 </head>
 
-<body>
+<body onload="initToolbar(); getCourses();">
 	<div>
 		<section class="toolbar-page display-flex border-bottom white-background">
 			<section class="logo-section border-right">
@@ -30,15 +40,14 @@
 				<i onclick="toggleMenu('menu-page')" class="fas fa-align-justify icon-default-size icon-toggle-menu"></i>
 				<div class="user-info margin-right-50 display-flex align-center">
 					<div class="display-flex flex-column">
-						<h4 class="name">Ilie Popescu</h4>
-						<p class="email">ilie@popescu.com</p>
+						<h4 id="name" class="name">Ilie Popescu</h4>
+						<p id="email" class="email">ilie@popescu.com</p>
 					</div>
 					<i class="fas fa-angle-down margin-left-10"></i>
 				</div>
 			</div>
 		</section>
 	</div>
-
 
 
 	<div>
@@ -76,78 +85,7 @@
 			<div id="myCourses">
 				<div class="courses-page">
 					<h3 class="margin-left-10 margin-top-10">Cursurile mele</h3>
-					<div class="courses display-flex flex-wrap">
-						<div class="course margin-10 padding-10">
-							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea
-								aplicatiilor Web la nivel de client</h4>
-							<div class="display-flex space-between margin-top-5">
-								<p>Sala C112</p>
-								<p class="margin-left-10">Miercuri de la ora 12:30</p>
-							</div>
-
-						</div>
-
-						<div class="course margin-10 padding-10">
-							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
-							<div class="display-flex space-between margin-top-5">
-								<p>Sala C112</p>
-								<p class="margin-left-10">Miercuri de la ora 12:30</p>
-							</div>
-
-						</div>
-
-						<div class="course margin-10 padding-10">
-							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
-							<div class="display-flex space-between margin-top-5">
-								<p>Sala C112</p>
-								<p class="margin-left-10">Miercuri de la ora 12:30</p>
-							</div>
-
-						</div>
-
-						<div class="course margin-10 padding-10">
-							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
-							<div class="display-flex space-between margin-top-5">
-								<p>Sala C112</p>
-								<p class="margin-left-10">Miercuri de la ora 12:30</p>
-							</div>
-
-						</div>
-
-						<div class="course margin-10 padding-10">
-							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
-							<div class="display-flex space-between margin-top-5">
-								<p>Sala C112</p>
-								<p class="margin-left-10">Miercuri de la ora 12:30</p>
-							</div>
-
-						</div>
-
-						<div class="course margin-10 padding-10">
-							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
-							<div class="display-flex space-between margin-top-5">
-								<p>Sala C112</p>
-								<p class="margin-left-10">Miercuri de la ora 12:30</p>
-							</div>
-
-						</div>
-						<div class="course margin-10 padding-10">
-							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
-							<div class="display-flex space-between margin-top-5">
-								<p>Sala C112</p>
-								<p class="margin-left-10">Miercuri de la ora 12:30</p>
-							</div>
-
-						</div>
-
-						<div class="course margin-10 padding-10">
-							<h4 onclick="document.location.href='current-course.html'">Dezvoltarea aplicatiilor Web la nivel de client</h4>
-							<div class="display-flex space-between margin-top-5">
-								<p>Sala C112</p>
-								<p class="margin-left-10">Miercuri de la ora 12:30</p>
-							</div>
-
-						</div>
+					<div id="courses" class="courses display-flex flex-wrap">
 					</div>
 				</div>
 			</div>
@@ -171,6 +109,8 @@
 		</div>
 
 	</div>
+	<script src="../javascript/toolbar.js"></script>
+	<script src="../javascript/professor.js"></script>
 </body>
 
 </html>
