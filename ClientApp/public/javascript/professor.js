@@ -4,11 +4,11 @@ function getCourses() {
   var email = localStorage.getItem('email');
   var courses = db.collection('courses');
 
-  var coursesDOM = document.getElementById('courses');
-  coursesDOM.innerHTML = '';
 
   courses = courses.where('createdBy', '==', email);
   courses.onSnapshot(querySnapshot => {
+    var coursesDOM = document.getElementById('courses');
+    coursesDOM.innerHTML = '';
     querySnapshot.forEach(function (doc) {
       console.log(doc.data())
       element = doc.data();
