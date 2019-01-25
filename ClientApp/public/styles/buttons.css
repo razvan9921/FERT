@@ -1,5 +1,4 @@
-
-
+input[type="submit"].button,
 .button {
     cursor: pointer;
     font-family: inherit;
@@ -12,20 +11,23 @@
     transition: all 0.3s ease-in-out;
 }
 
+input[type="submit"].button-info,
 .button-info {
     background-color: #0f9aee;
     border-color: #0f9aee;
     color: #ffffff;
 }
 
+input[type="submit"].button-submit,
 .button-submit {
     background-color: #37c936;
-    border-color:#37c936;
+    border-color: #37c936;
     color: #ffffff;
 }
 
+input[type="submit"].button-danger,
 .button-danger {
     background-color: #ff3c7e;
-    border-color:#ff3c7e;
+    border-color: #ff3c7e;
     color: #ffffff;
 }

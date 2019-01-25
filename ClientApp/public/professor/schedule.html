@@ -15,9 +15,18 @@
 	<link rel="stylesheet" href="../styles/flex.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 	<link rel="stylesheet" href="../styles/colors.css">
+
+	<script defer src="/__/firebase/5.7.3/firebase-app.js"></script>
+	<!-- include only the Firebase features as you need -->
+	<script defer src="/__/firebase/5.7.3/firebase-auth.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-database.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-messaging.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-firestore.js"></script>
+	<!-- initialize the SDK after all desired features are loaded -->
+	<script defer src="/__/firebase/init.js"></script>
 </head>
 
-<body>
+<body onload="getCourses();getCurrentWeek(date);initToolbar();">
 	<div id="toolbar">
 		<section class="toolbar-page display-flex border-bottom white-background">
 			<section class="logo-section border-right">
@@ -31,8 +40,8 @@
 				<i onclick="toggleMenu('menu-page')" class="fas fa-align-justify icon-default-size icon-toggle-menu"></i>
 				<div class="user-info margin-right-50 display-flex align-center">
 					<div class="display-flex flex-column">
-						<h4 class="name">Ilie Popescu</h4>
-						<p class="email">ilie@popescu.com</p>
+						<h4 id="name" class="name"></h4>
+						<p id="email" class="email"></p>
 					</div>
 					<i class="fas fa-angle-down margin-left-10"></i>
 				</div>
@@ -74,11 +83,12 @@
 					<div class="width-100 display-flex space-between">
 						<h4>Orar</h4>
 						<div class="week ">
-							<h5 class="margin-left-20">Saptamana 5</h5>
+							<h5 class="margin-left-20">Saptamana</h5>
 							<div class="display-flex align-center">
-								<i class="fas fa-chevron-left margin-right-10"></i>
-								<input class="choose-week text-center" type="datetime" value="10/30/2018">
-								<i class="fas fa-chevron-right margin-left-10"></i>
+								<i class="pointer fas fa-chevron-left margin-right-10" onclick="previousWeek()"></i>
+								<input id="start-week" class="choose-week text-center" type="text" disabled>
+								<input id="end-week" class="choose-week text-center" type="text" disabled>
+								<i class="pointer fas fa-chevron-right margin-left-10" onclick="nextWeek()"></i>
 							</div>
 
 						</div>
@@ -86,9 +96,7 @@
 
 					<div class="schedule display-flex flex-column margin-top-10">
 						<div class="line display-flex border-bottom">
-							<div class="row border-right display-flex justify-center align-center">
-
-							</div>
+							<div class="row border-right display-flex justify-center align-center"></div>
 							<div class="row border-right display-flex justify-center align-center">
 								<h4>Luni</h4>
 							</div>
@@ -111,189 +119,91 @@
 								<h4>Duminica</h4>
 							</div>
 						</div>
-						<div class="line display-flex border-bottom">
+						<div id="8" class="line display-flex border-bottom">
 							<div class="row border-right display-flex justify-center align-center">
 								<h4>08:00 - 10:00</h4>
 							</div>
-							<div class="row border-right display-flex justify-center align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-								<p onclick="document.location.href='current-course.html'">Tehnologii
-									web</p>
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row display-flex justify-center  align-center">
-
-							</div>
+							<div class="row border-right display-flex justify-center align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row display-flex justify-center  align-center"></div>
 						</div>
-						<div class="line display-flex border-bottom">
+						<div id="10" class="line display-flex border-bottom">
 							<div class="row border-right display-flex justify-center align-center">
 								<h4>10:00 - 12:00</h4>
 							</div>
-							<div class="row border-right display-flex justify-center align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-								<p onclick="document.location.href='current-course.html'">Dezvoltarea
-									aplicatiilor</p>
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row display-flex justify-center  align-center">
-
-							</div>
+							<div class="row border-right display-flex justify-center align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row display-flex justify-center  align-center"></div>
 						</div>
-						<div class="line display-flex border-bottom">
+						<div id="12" class="line display-flex border-bottom">
 							<div class="row border-right display-flex justify-center align-center">
 								<h4>12:00 - 14:00</h4>
 							</div>
-							<div class="row border-right display-flex justify-center align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row display-flex justify-center  align-center">
-
-							</div>
+							<div class="row border-right display-flex justify-center align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row display-flex justify-center  align-center"></div>
 						</div>
-						<div class="line display-flex border-bottom">
+						<div id="14" class="line display-flex border-bottom">
 							<div class="row border-right display-flex justify-center align-center">
 								<h4>14:00 - 16:00</h4>
 							</div>
-							<div class="row border-right display-flex justify-center align-center">
-								<p onclick="document.location.href='current-course.html'">Retele</p>
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row display-flex justify-center  align-center">
-
-							</div>
+							<div class="row border-right display-flex justify-center align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row display-flex justify-center  align-center"></div>
 						</div>
-						<div class="line display-flex border-bottom">
+						<div id="16" class="line display-flex border-bottom">
 							<div class="row border-right display-flex justify-center align-center">
 								<h4>16:00 - 18:00</h4>
 							</div>
-							<div class="row border-right display-flex justify-center align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row display-flex justify-center  align-center">
-
-							</div>
+							<div class="row border-right display-flex justify-center align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row display-flex justify-center  align-center"></div>
 						</div>
-						<div class="line display-flex border-bottom">
+						<div id="18" class="line display-flex border-bottom">
 							<div class="row border-right display-flex justify-center align-center">
 								<h4>18:00 - 20:00</h4>
 							</div>
-							<div class="row border-right display-flex justify-center align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
+							<div class="row border-right display-flex justify-center align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
 							<div class="row display-flex justify-center  align-center">
 
 							</div>
 						</div>
-						<div class="line display-flex border-bottom">
+						<div id="20" class="line display-flex border-bottom">
 							<div class="row border-right display-flex justify-center align-center">
 								<h4>20:00 - 22:00</h4>
 							</div>
-							<div class="row border-right display-flex justify-center align-center">
-								<p onclick="document.location.href='current-course.html'">Cercetare</p>
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row border-right  display-flex justify-center  align-center">
-
-							</div>
-							<div class="row display-flex justify-center  align-center">
-
-							</div>
+							<div class="row border-right display-flex justify-center align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row border-right  display-flex justify-center  align-center"></div>
+							<div class="row display-flex justify-center  align-center"></div>
 						</div>
 					</div>
 				</div>
@@ -301,6 +211,9 @@
 		</div>
 
 	</div>
+
+	<script src="../javascript/schedule-interactions.js"></script>
+	<script src="../javascript/toolbar.js"></script>
 </body>
 
 </html>

@@ -1,176 +1,176 @@
 .home-sections {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 
 @media only screen and (max-width: 1000px) {
-    .home-sections {
-        flex-direction: column;
-    }
+  .home-sections {
+    flex-direction: column;
+  }
 }
 
 
 
 
 .courses-page {
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
 }
 
 .courses {
-    max-width: 70vw;
+  max-width: 70vw;
 }
 
 .course {
-    background-color: white;
-    width: 350px;
-    height: 65px;
-    border: 1px solid #e6ecf5;
-    border-radius: 3px;
+  background-color: white;
+  width: 350px;
+  height: 65px;
+  border: 1px solid #e6ecf5;
+  border-radius: 3px;
 }
 
 .course h4:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 
 @media only screen and (max-width: 600px) {
-    .courses-page {
-        margin-left: 0px;
-        margin-top: 10px;
-        margin-right: 0px;
-    }
+  .courses-page {
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-right: 0px;
+  }
 
-    .courses {
+  .courses {
 
-        max-width: 100vw;
-    }
+    max-width: 100vw;
+  }
 }
 
 
 
 .statistics-section {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .statistic {
-    background-color: white;
-    width: 300px;
-    height: 300px;
+  background-color: white;
+  width: 300px;
+  height: 300px;
 
-    border: 1px solid #e6ecf5;
-    border-radius: 3px;
+  border: 1px solid #e6ecf5;
+  border-radius: 3px;
 
 }
 
 @media only screen and (max-width: 600px) {
-    .statistics-section {
-        margin-left: 10px;
-    }
+  .statistics-section {
+    margin-left: 10px;
+  }
 }
 
 
 .new-course {
-    background-color: white;
-    border: 1px solid #e6ecf5;
-    border-radius: 3px;
-    padding: 30px;
-  }
-  
-  
-  .info-new-course {
-    width: 700px;
-  }
-  
+  background-color: white;
+  border: 1px solid #e6ecf5;
+  border-radius: 3px;
+  padding: 30px;
+}
+
+
+.info-new-course {
+  width: 700px;
+}
+
+.setting-new-course {
+  width: 500px;
+}
+
+.description {
+  resize: vertical;
+  font-family: inherit;
+}
+
+.oneFromThree {
+  width: 30%;
+}
+
+
+
+.setting-new-course {
+  margin-left: 20px;
+}
+
+@media only screen and (max-width: 1361px) {
   .setting-new-course {
-    width: 500px;
+    margin-left: 0;
+    margin-top: 10px;
   }
-  
-  .description {
-    resize: vertical;
-    font-family: inherit;
-  }
-  
-  .oneFromThree {
-    width: 30%;
-  }
-  
-  
-  
-  .setting-new-course {
-    margin-left: 20px;
-  }
-  
-  @media only screen and (max-width: 1361px) {
-    .setting-new-course {
-      margin-left: 0;
-      margin-top: 10px;
-    }
-  }
-  
-  
-  
+}
+
+
+
+.edit-professors-section {
+  background-color: white;
+  border: 1px solid #e6ecf5;
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  height: 80%;
+  overflow-y: scroll;
+}
+
+.list-professors {
+  background-color: white;
+  border: 1px solid #e6ecf5;
+  border-radius: 3px;
+  padding: 10px;
+
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.find-professors,
+.actual-professors {
+  width: 100%;
+  max-width: 400px;
+}
+
+.professor {
+  cursor: pointer;
+}
+
+.professor i {
+  visibility: hidden;
+  color: #0f9aee;
+}
+
+.professor:hover i {
+  visibility: visible;
+}
+
+.professor:hover p {
+  color: #0f9aee;
+}
+
+.actual-professors {
+  margin-left: 10px;
+}
+
+@media only screen and (max-width: 600px) {
   .edit-professors-section {
-    background-color: white;
-    border: 1px solid #e6ecf5;
-    border-radius: 3px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-around;
-    height: 80%;
-    overflow-y: scroll;
+    flex-direction: column;
   }
-  
+
   .list-professors {
-    background-color: white;
-    border: 1px solid #e6ecf5;
-    border-radius: 3px;
-    padding: 10px;
-  
-    height: 400px;
-    overflow-y: scroll;
+    height: 200px;
   }
-  
-  .find-professors,
+
   .actual-professors {
-    width: 100%;
-    max-width: 400px;
+    margin-left: 0px;
+    margin-top: 10px;
   }
-  
-  .professor {
-    cursor: pointer;
-  }
-  
-  .professor i {
-    visibility: hidden;
-    color: #0f9aee;
-  }
-  
-  .professor:hover i {
-    visibility: visible;
-  }
-  
-  .professor:hover p {
-    color: #0f9aee;
-  }
-  
-  .actual-professors {
-    margin-left: 10px;
-  }
-  
-  @media only screen and (max-width: 600px) {
-    .edit-professors-section {
-      flex-direction: column;
-    }
-  
-    .list-professors {
-      height: 200px;
-    }
-  
-    .actual-professors {
-      margin-left: 0px;
-      margin-top: 10px;
-    }
-  }
+}
