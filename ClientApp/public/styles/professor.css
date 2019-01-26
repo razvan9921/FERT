@@ -94,7 +94,8 @@
 }
 
 .oneFromThree {
-  width: 30%;
+  min-width: 200px;
+  max-width: 30%;
 }
 
 

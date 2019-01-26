@@ -17,9 +17,18 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 	<link rel="stylesheet" href="../styles/colors.css">
 	<link rel="stylesheet" href="../styles/current-course.css">
+
+	<script defer src="/__/firebase/5.7.3/firebase-app.js"></script>
+	<!-- include only the Firebase features as you need -->
+	<script defer src="/__/firebase/5.7.3/firebase-auth.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-database.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-messaging.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-firestore.js"></script>
+	<!-- initialize the SDK after all desired features are loaded -->
+	<script defer src="/__/firebase/init.js"></script>
 </head>
 
-<body>
+<body onload="getCurrentCouse();initToolbar()">
 	<div id="toolbar">
 		<section class="toolbar-page display-flex border-bottom white-background">
 			<section class="logo-section border-right">
@@ -33,8 +42,8 @@
 				<i onclick="toggleMenu('menu-page')" class="fas fa-align-justify icon-default-size icon-toggle-menu"></i>
 				<div class="user-info margin-right-50 display-flex align-center">
 					<div class="display-flex flex-column">
-						<h4 class="name">Ilie Popescu</h4>
-						<p class="email">ilie@popescu.com</p>
+						<h4 id="name"></h4>
+						<p id="email"></p>
 					</div>
 					<i class="fas fa-angle-down margin-left-10"></i>
 				</div>
@@ -71,40 +80,22 @@
 
 	<div class="content">
 		<div id="courseInfo">
-			<h4 class="margin-top-20 margin-left-20">Tehnologii web</h4>
+			<div class="display-flex space-between margin-right-20">
+				<h4 id="courseTitle" class="margin-top-20 margin-left-20">.</h4>
+				<h4 class="margin-top-20 margin-left-20">Studenti conectati: <spam id="number-students">0</spam></h4>
+			</div>
+
 			<div class="course-info-section margin-left-20 margin-top-10 margin-right-20">
 				<div class="display-flex space-between">
 					<div class="questions-section">
-						<h4>Intrebari primite</h4>
-						<div class="questions-card margin-top-10">
-							<div class="question padding-10 margin-10 display-flex space-between">
-								<p>Ce sunt microserviciile?</p>
-								<input type="checkbox" class="form-checkbox visibility-hidden">
-							</div>
-							<div class="question padding-10 margin-10 display-flex space-between">
-								<p>Internet tind să repete bucăţi de text în funcţie de necesitate, astfel făc?</p>
-								<input type="checkbox" class="form-checkbox visibility-hidden">
-							</div>
-							<div class="question padding-10 margin-10 display-flex space-between">
-								<p>Eistă o mulţime de variaţii disponibile ale pasajelor Lorem Ipsum, dar majoritatea lor au
-									suferit?</p>
-								<input type="checkbox" class="form-checkbox visibility-hidden">
-							</div>
-							<div class="question padding-10 margin-10 display-flex space-between">
-								<p>Ce sunt microserviciile?</p>
-								<input type="checkbox" class="form-checkbox visibility-hidden">
-							</div>
-							<div class="question padding-10 margin-10 display-flex space-between">
-								<p>Ce sunt microserviciile?</p>
-								<input type="checkbox" class="form-checkbox visibility-hidden">
-							</div>
-
+						<h4 class="margin-10">Intrebari primite</h4>
+						<div id="questions" class="questions-card">
 						</div>
 					</div>
 					<div>
 						<div class="questions-section">
-							<h4>Intrebari puse</h4>
-							<div class="questions-card margin-top-10">
+							<h4 class="margin-10">Intrebari puse</h4>
+							<div class="questions-card">
 								<div class="question padding-10 margin-10">
 									<p>Ce sunt microserviciile?</p>
 								</div>
@@ -118,29 +109,28 @@
 						</div>
 					</div>
 					<div>
-						<div class="setting-course border-left">
-							<h4 class="margin-left-10">Setarile cursului</h4>
-							<div class="display-flex flex-column margin-20">
-								<label>Numarul de raspunsuri negative ale unei intrebari</label>
-								<div class="display-flex align-center">
-									<input class="percentage" type="number" min="0" max="100">
-									<p class="margin-left-5">% dintre studenti</p>
+						<form method="POST" onsubmit="updateCourse(); return false">
+							<div class="setting-course border-left">
+								<h4 class="margin-left-10">Setarile cursului</h4>
+								<div class="display-flex flex-column margin-20">
+									<label>Numarul de raspunsuri negative ale unei intrebari</label>
+									<div class="display-flex align-center">
+										<input id="students-likes" class="percentage" type="number" min="0" max="100" required>
+										<p class="margin-left-5">% dintre studentii prezenti</p>
+									</div>
 								</div>
-
-							</div>
-							<div class="display-flex flex-column margin-20">
-								<label>Numarul de raspunsuri corecte ale unui quiz</label>
-								<div class="display-flex align-center">
-									<input class="percentage" type="number" min="0" max="100">
-									<p class="margin-left-5">% dintre studenti</p>
+								<div class="display-flex flex-column margin-20">
+									<label>Numarul de raspunsuri corecte ale unui quiz</label>
+									<div class="display-flex align-center">
+										<input id="quiz-correct-answer" class="percentage" type="number" min="0" max="100" required>
+										<p class="margin-left-5">% dintre studentii prezenti</p>
+									</div>
 								</div>
 							</div>
-							<button onclick="openModal()" class="button button-info margin-left-20">Editeaza profesori</button>
-						</div>
-						<div class="display-flex flex-end">
-							<button class="button button-submit margin-left-20">Salveaza</button>
-						</div>
-
+							<div class="display-flex flex-end">
+								<input class="button button-submit" type="submit" value="Salveaza">
+							</div>
+						</form>
 					</div>
 				</div>
 
@@ -201,6 +191,8 @@
 		</div>
 		<script src="../javascript/menu-interaction.js"></script>
 		<script src="../javascript/modal-interaction.js"></script>
+		<script src="../javascript/current-course-interaction.js"></script>
+		<script src="../javascript/toolbar.js"></script>
 </body>
 
 </html>

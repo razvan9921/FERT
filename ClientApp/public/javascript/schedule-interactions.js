@@ -11,7 +11,9 @@ function getCourses() {
   courses.onSnapshot(querySnapshot => {
     coursesList = []
     querySnapshot.forEach(function (doc) {
-      coursesList.push(doc.data());
+      obj = doc.data();
+      obj.id = doc.id;
+      coursesList.push(obj);
     });
     weekCourses = getCoursesByWeek();
     addCoursesIntoSchedule(weekCourses);
@@ -33,8 +35,11 @@ function resetSchedule() {
 
 function writeHtmlBySection(section, element) {
   section.innerHTML = '';
-  p = document.createElement('p');
+  p = document.createElement("p");
+  p.classList.add('text-center');
   p.innerHTML = element.title;
+  p.setAttribute('id', element.id);
+  p.setAttribute('onclick',`redirectToCourse("${element.id}")`)
   section.appendChild(p);
 }
 
@@ -95,4 +100,10 @@ function getSunday(d) {
 function getCurrentWeek(date) {
   document.getElementById('start-week').value = getMonday(date);
   document.getElementById('end-week').value = getSunday(date);
+}
+
+
+function redirectToCourse(id) {
+  localStorage.setItem('courseId', id)
+  window.location.href="../professor/current-course.html";
 }

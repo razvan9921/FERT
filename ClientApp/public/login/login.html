@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="../styles/colors.css">
 	<link rel="stylesheet" href="../styles/login.css">
 	<link rel="stylesheet" href="../styles/shared.css">
-
+	<link rel="stylesheet" href="../styles/buttons.css">
 	<script defer src="/__/firebase/5.7.3/firebase-app.js"></script>
 	<!-- include only the Firebase features as you need -->
 	<script defer src="/__/firebase/5.7.3/firebase-auth.js"></script>
@@ -24,19 +24,14 @@
 
 <body>
 	<div class="wrapper">
-		<form class="form-signin" method="POST" onsubmit="return login()">
+		<form class="form-signin" method="POST" onsubmit="login(); return false">
 			<h2 class="form-signin-heading">Atuentificati-va in F.E.R.T.</h2>
 			<input id="email" class="form-control" placeholder="Adresa de Email" required="" autofocus="" />
 			<input type="password" id="password" class="form-control" placeholder="Parola" required="" />
 			<!-- <button class="btn" type="submit" onclick="document.location.href='../register/register.html'">
 				Inregistrare
 			</button> -->
-			<div class="">Sunt professor<input id="isProfessor" type="checkbox" /></div>
-			<div class="">Sunt student<input id="isStudent" type="checkbox" /></div>
-
-
-			<div class="check">Tine-ma minte<input type="checkbox" /></div>
-			<input class="btn" type="submit" value="Da-i">
+			<input class="button button-submit" type="submit" value="Da-i">
 			<div id="error"></div>
 		</form>
 	</div>

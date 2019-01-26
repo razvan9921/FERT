@@ -18,13 +18,13 @@
   <link rel="stylesheet" href="../styles/professor.css">
 
   <script defer src="/__/firebase/5.7.3/firebase-app.js"></script>
-	<!-- include only the Firebase features as you need -->
-	<script defer src="/__/firebase/5.7.3/firebase-auth.js"></script>
-	<script defer src="/__/firebase/5.7.3/firebase-database.js"></script>
-	<script defer src="/__/firebase/5.7.3/firebase-messaging.js"></script>
-	<script defer src="/__/firebase/5.7.3/firebase-firestore.js"></script>
-	<!-- initialize the SDK after all desired features are loaded -->
-	<script defer src="/__/firebase/init.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/5.7.3/firebase-auth.js"></script>
+  <script defer src="/__/firebase/5.7.3/firebase-database.js"></script>
+  <script defer src="/__/firebase/5.7.3/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/5.7.3/firebase-firestore.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
 </head>
 
 <body onload="initToolbar();">
@@ -88,22 +88,22 @@
               <div class="info-new-course">
                 <div class="display-flex flex-column">
                   <label>Nume curs</label>
-                  <input id="title" type="text"  placeholder="Nume curs" required>
+                  <input id="title" type="text" placeholder="Nume curs" required>
                 </div>
                 <div class="display-flex flex-column margin-top-10">
                   <label>Descriere</label>
                   <textarea id="description" class="description" type="text" placeholder="Descriere" rows="5"></textarea>
                 </div>
-                <div class="display-flex space-between margin-top-10">
-                  <div class="oneFromThree">
+                <div class="display-flex flex-wrap margin-top-10">
+                  <div class="oneFromThree display-flex flex-column">
                     <label>Data</label>
-                    <input id="date" type="date" id="meeting-time" name="meeting-time" min="2010-06-07" max="100-06-14" required >
+                    <input id="date" type="date" id="meeting-time" name="meeting-time" min="2010-06-07" max="100-06-14" required>
                   </div>
                   <div class="oneFromThree display-flex flex-column">
                     <label>Ora</label>
                     <input id="time" type="time" placeholder="Ora" min="00:00" max="24:00" required>
                   </div>
-                  <div class="oneFromThree">
+                  <div class="oneFromThree display-flex flex-column">
                     <label>Sala</label>
                     <input id="classroom" type="text" placeholder="Sala" required>
                   </div>
@@ -111,13 +111,12 @@
                 <!-- <button type="button" onclick="openModal()" class="button button-info margin-top-10">Editeaza profesori</button> -->
               </div>
               <div class="setting-new-course">
-                <div class="display-flex flex-column">
-                  <label>Numarul de aprecieri ale unei intrebari</label>
+                <div class="display-flex flex-column margin-20">
+                  <label>Numarul de raspunsuri negative ale unei intrebari</label>
                   <div class="display-flex align-center">
                     <input id="students-likes" class="percentage" type="number" min="0" max="100" required>
                     <p class="margin-left-5">% dintre studentii prezenti</p>
                   </div>
-
                 </div>
                 <div class="display-flex flex-column margin-top-10">
                   <label>Numarul de raspunsuri corecte ale unui quiz</label>
@@ -143,6 +142,7 @@
   <script src="../javascript/menu-interaction.js"></script>
   <script src="../javascript/toolbar.js"></script>
   <script src="../javascript/new-course.js"></script>
+  <script src="../javascript/menu-interaction.js"></script>
 </body>
 
 </html>

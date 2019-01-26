@@ -12,7 +12,7 @@ function getCourses() {
     querySnapshot.forEach(function (doc) {
       console.log(doc.data())
       element = doc.data();
-
+      element.id = doc.id;
       var coursesDOM = document.getElementById('courses');
       // items.forEach(element => {
       var courseDIV = document.createElement('div');
@@ -20,6 +20,8 @@ function getCourses() {
       coursesDOM.appendChild(courseDIV);
 
       title = document.createElement('h4');
+      title.setAttribute('id', element.id);
+      title.setAttribute('onclick', `redirectToCourse("${element.id}")`)
       title.innerHTML = element.title;
       courseDIV.appendChild(title);
 
@@ -37,4 +39,9 @@ function getCourses() {
       detailsDIV.appendChild(date);
     });
   });
+}
+
+function redirectToCourse(id) {
+  localStorage.setItem('courseId', id)
+  window.location.href = "../professor/current-course.html";
 }
