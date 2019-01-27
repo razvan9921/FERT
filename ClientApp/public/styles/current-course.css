@@ -6,8 +6,8 @@
  
 }
 
-.question-section {
-  width: 100%;
+.questions-section {
+  width: 500px;
 }
 
 .questions-card {
@@ -28,4 +28,36 @@
 .setting-course {
   width: 400px;
   height: 700px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .questions-section {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .questions-card {
+    width: 100%;
+    height: 300px;
+  }
+
+  .setting-course {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+
+.question-info {
+  font-size: 13px;
+  color: #c2c6cc;
+}
+
+.input-question {
+  width: 97%;
+  resize: vertical;
+}
+
+.add-question-modal {
+  max-width: 500px;
 }

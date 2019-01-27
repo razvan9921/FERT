@@ -20,7 +20,9 @@ function newCourse() {
     "classroom": classroom,
     "studentLikes": studentLikes,
     "quizCorrectAnswer": quizCorrectAnswer,
-    "createdBy": email
+    "createdBy": email,
+    "quizzes":[],
+    "questions":[]
   };
 
   res = db.collection("courses").add(course)

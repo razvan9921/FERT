@@ -82,35 +82,32 @@
 		<div id="courseInfo">
 			<div class="display-flex space-between margin-right-20">
 				<h4 id="courseTitle" class="margin-top-20 margin-left-20">.</h4>
-				<h4 class="margin-top-20 margin-left-20">Studenti conectati: <spam id="number-students">0</spam></h4>
+				<h4 class="margin-top-20 margin-left-20">Studenti conectati: <spam id="number-students">0</spam>
+				</h4>
 			</div>
 
 			<div class="course-info-section margin-left-20 margin-top-10 margin-right-20">
-				<div class="display-flex space-between">
-					<div class="questions-section">
+				<div class="display-flex flex-wrap">
+
+					<div class="questions-section margin-right-20">
 						<h4 class="margin-10">Intrebari primite</h4>
 						<div id="questions" class="questions-card">
 						</div>
 					</div>
+
 					<div>
-						<div class="questions-section">
+						<div class="questions-section margin-right-10">
 							<h4 class="margin-10">Intrebari puse</h4>
-							<div class="questions-card">
-								<div class="question padding-10 margin-10">
-									<p>Ce sunt microserviciile?</p>
-								</div>
-								<div class="question padding-10 margin-10">
-									<p>Internet tind să repete bucăţi de text în funcţie de necesitate, astfel făc?</p>
-								</div>
+							<div id="quizzes" class="questions-card">
 							</div>
 						</div>
 						<div class="display-flex flex-end margin-top-20">
-							<button class="button button-info margin-right-20">Adauga o intrebare</button>
+							<button class="button button-info margin-right-20" onclick="openModal()">Adauga o intrebare</button>
 						</div>
 					</div>
 					<div>
 						<form method="POST" onsubmit="updateCourse(); return false">
-							<div class="setting-course border-left">
+							<div class="setting-course margin-left-10 border-left">
 								<h4 class="margin-left-10">Setarile cursului</h4>
 								<div class="display-flex flex-column margin-20">
 									<label>Numarul de raspunsuri negative ale unei intrebari</label>
@@ -140,53 +137,63 @@
 			<div id="myModal" class="modal">
 
 				<!-- Modal content -->
-				<div class="modal-content">
-					<span onclick="closeModal()" class="close">&times;</span>
-					<h4>Editeaza profesori colaboratori</h4>
-					<div class="edit-professors-section margin-top-10">
-						<div class="find-professors">
-							<h5>Adauga profesori:</h5>
-							<input type="text" placeholder="Cauta profesori">
-							<div class="list-professors">
-								<div class="professor padding-5 display-flex space-between">
-									<p class="name">Ana Blandiana</p>
-									<i class="fas fa-plus"></i>
-								</div>
-								<div class=" professor padding-5 display-flex space-between">
-									<p class="name">Ana Blandiana</p>
-									<i class="fas fa-plus"></i>
-								</div>
-								<div class="professor padding-5 display-flex space-between">
-									<p class="name">Ana Blandiana</p>
-									<i class="fas fa-plus"></i>
-								</div>
-								<div class=" professor padding-5 display-flex space-between">
-									<p class="name">Ana Blandiana</p>
-									<i class="fas fa-plus"></i>
-								</div>
-								<div class="professor padding-5 display-flex space-between">
-									<p class="name">Ana Blandiana</p>
-									<i class="fas fa-plus"></i>
+				<form onsubmit="saveData();closeModal();">
+					<div class="modal-content add-question-modal">
+						<span onclick="closeModal()" class="close">&times;</span>
+						<h4>Adauga o intrebare noua</h4>
+						<div class="edit-professors-section margin-top-10">
+							<div class="find-professors">
+								<textarea id="quiz-text" class="input-question" rows="4" cols="50" required></textarea>
+								<div class="list-professors">
+									<div class="professor padding-5 display-flex flex-column">
+										<p class="name">Raspuns A</p>
+										<input id="answer1" type="text" required>
+									</div>
+									<div class=" professor padding-5 display-flex flex-column">
+										<p class="name">Raspuns B</p>
+										<input id="answer2" type="text" required>
+									</div>
+									<div class="professor padding-5 display-flex flex-column">
+										<p class="name">Raspuns C</p>
+										<input id="answer3" type="text" required>
+									</div>
+									<div class=" professor padding-5 display-flex flex-column">
+										<p class="name">Raspuns D</p>
+										<input id="answer4" type="text" required>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="actual-professors">
-							<h5>Profesori colaboratori:</h5>
-							<input type="text" placeholder="Cauta profesori">
-							<div class="list-professors">
-								<div class="professor padding-5 display-flex space-between">
-									<p class="name">Ana Blandiana</p>
-									<i class="fas fa-minus"></i>
+						<div>
+							<h4>Raspuns corect:</h4>
+							<div class="display-flex space-around margin-bottom-20">
+								<div class="display-flex flex-column">
+									<div>
+										<input id="correctAnswer1" type="radio" name="correctAnswer" value="A" /> Varianta A
+									</div>
+									<div>
+										<input id="correctAnswer2" type="radio" name="correctAnswer" value="B" class="margin-top-0" /> Varianta B
+									</div>
+								</div>
+								<div class="display-flex flex-column">
+									<div>
+										<input id="correctAnswer3" type="radio" name="correctAnswer" value="C" /> Varianta C
+									</div>
+									<div>
+										<input id="correctAnswer4" type="radio" name="correctAnswer" value="D" class="margin-top-0" /> Varianta D
+									</div>
 								</div>
 							</div>
+
+						</div>
+						<div class="buttons-modal display-flex flex-end align-center margin-right-10">
+							<input onclick="closeModal()" type="submit" class="button button-danger margin-top-10">Anuleaza</input>
+							<span class="margin-left-5 margin-right-5"> sau </span>
+							<input type="submit" class="button button-submit margin-top-10">Salveaza</input>
 						</div>
 					</div>
-					<div class="buttons-modal display-flex flex-end align-center margin-right-10">
-						<button onclick="closeModal()" type="submit" class="button button-danger margin-top-10">Anuleaza</button>
-						<span class="margin-left-5 margin-right-5"> sau </span>
-						<button onclick="closeModal()" type="submit" class="button button-submit margin-top-10">Salveaza</button>
-					</div>
-				</div>
+				</form>
+
 			</div>
 		</div>
 		<script src="../javascript/menu-interaction.js"></script>
