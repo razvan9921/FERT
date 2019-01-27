@@ -22,7 +22,8 @@ function newCourse() {
     "quizCorrectAnswer": quizCorrectAnswer,
     "createdBy": email,
     "quizzes":[],
-    "questions":[]
+    "questions":[],
+    "students":[]
   };
 
   res = db.collection("courses").add(course)
