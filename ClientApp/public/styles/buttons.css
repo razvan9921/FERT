@@ -20,6 +20,10 @@ input[type="submit"].button-info,
 
 input[type="submit"].button-submit,
 .button-submit {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.button-submit, .button:hover{
     background-color: #37c936;
     border-color: #37c936;
     color: #ffffff;
