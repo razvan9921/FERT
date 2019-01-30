@@ -12,6 +12,15 @@
 	<link rel="stylesheet" href="../styles/colors.css">
 	<link rel="stylesheet" href="../styles/register.css">
 	<link rel="stylesheet" href="../styles/shared.css">
+	<link rel="stylesheet" href="../styles/buttons.css">
+	<script defer src="/__/firebase/5.7.3/firebase-app.js"></script>
+	<!-- include only the Firebase features as you need -->
+	<script defer src="/__/firebase/5.7.3/firebase-auth.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-database.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-messaging.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-firestore.js"></script>
+	<!-- initialize the SDK after all desired features are loaded -->
+	<script defer src="/__/firebase/init.js"></script>
 
 </head>
 
@@ -25,7 +34,7 @@
 			<input class="form-control" placeholder="Numa" required="" />
 			<input class="form-control" placeholder="Prenume" required="" autofocus="" />
 			<input class="form-control" placeholder="Tipul de profesor/Anul de studiu" required="" />
-			<button class="btn" type="submit" onclick="document.location.href='../professor/home.html'">
+			<button class="button" type="submit" onclick="createAccount()">
 				Inregistrare
 			</button>
 			</div>
