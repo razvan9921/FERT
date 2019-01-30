@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Fert</title>
+	<link rel="icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="../styles/colors.css">
+	<link rel="stylesheet" href="../styles/register.css">
+	<link rel="stylesheet" href="../styles/shared.css">
+	<link rel="stylesheet" href="../styles/buttons.css">
+	<script defer src="/__/firebase/5.8.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.8.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.8.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.8.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.8.1/firebase-storage.js"></script>
+    <script defer src="/__/firebase/5.8.1/firebase-firestore.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<form class="form-signin" onsubmit="createAccount(); return false">
+			<h2 class="form-signin-heading">Inregistrati-va in F.E.R.T.</h2>
+			<input class="form-control" id="firstName_field" placeholder="Nume" required="" />
+			<input class="form-control" id="lastName_field" placeholder="Prenume" required="" autofocus="" />
+			<input class="form-control" id="email_field" placeholder="Adresa de Email" required="" autofocus="" />
+			<input class="form-control" type="password" id="password_field" placeholder="Parola" required="" />
+			<input class="button" type="submit" value="Inregistrare">
+			</div>
+		</form>
+	</div>
+</body>
+	<script src="../javascript/register-professor.js"></script>
+</html>
