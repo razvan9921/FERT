@@ -33,21 +33,13 @@
   border: 1px solid #e6ecf5;
   border-radius: 3px;
   padding: 30px;
+  width: 90%;
+  height: 100%;
 }
 
-.course-info-section {
-  background-color: white;
-  border: 1px solid #e6ecf5;
-  border-radius: 3px;
-  padding: 30px;
-}
-
-.question-section {
-  width: 97%;
-}
 
 .questions-card {
-  width: 400px;
+  width: 350px;
   height: 60vh;
   overflow-y: scroll;
   cursor: pointer;
@@ -212,10 +204,7 @@ h3 {
 }
 
 .question {
-  width: 97%;
-  height: 100px;
-  margin: 20px 0px 0px 20px;
-  display: flex;
+  height: 80px;
 }
 
 .area {

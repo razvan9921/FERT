@@ -16,9 +16,18 @@
 	<link rel="stylesheet" href="../styles/colors.css">
 	<link rel="stylesheet" href="../styles/student.css">
 
+	<script defer src="/__/firebase/5.7.3/firebase-app.js"></script>
+	<!-- include only the Firebase features as you need -->
+	<script defer src="/__/firebase/5.7.3/firebase-auth.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-database.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-messaging.js"></script>
+	<script defer src="/__/firebase/5.7.3/firebase-firestore.js"></script>
+	<!-- initialize the SDK after all desired features are loaded -->
+	<script defer src="/__/firebase/init.js"></script>
+
 </head>
 
-<body>
+<body onload="getCourses();">
 	<div id="toolbar">
 		<section class="toolbar-page display-flex border-bottom white-background">
 			<section class="logo-section border-right">
@@ -82,102 +91,26 @@
 					<div class="questions-section">
 						<h3>Cursuri in desfasurare</h3>
 						<div class="questions-card margin-top-10">
-							<div onclick="openModal()" class="question padding-10 margin-10">
-								<a>DAWNC</a>
-								<a>profesor - Buraga Sabin</a>
-								<a>14:00-16:00</a>
-								<a>sala C2 -> parter</a>
-								<button class="ongoing"></button>
-							</div>
-							<div class="question padding-10 margin-10">
-								<a>DAWNC</a>
-								<a>profesor - Buraga Sabin</a>
-								<a>14:00-16:00</a>
-								<a>sala C2 -> parter</a>
-								<button class="ongoing"></button>
-							</div>
-							<div class="question padding-10 margin-10">
-								<a>DAWNC</a>
-								<a>profesor - Buraga Sabin</a>
-								<a>14:00-16:00</a>
-								<a>sala C2 -> parter</a>
-								<button class="ongoing"></button>
-							</div>
-							<div class="question padding-10 margin-10">
-								<a>DAWNC</a>
-								<a>profesor - Buraga Sabin</a>
-								<a>14:00-16:00</a>
-								<a>sala C2 -> parter</a>
-								<button class="ongoing"></button>
-							</div>
-
+								<div id="myCourses">
+										<div class="courses-page">
+											<div id="courses" class="courses display-flex flex-wrap">
+											</div>
+										</div>
+									</div>
+						
 						</div>
 					</div>
 					<div class="questions-section">
 						<h3>Cursuri care urmeaza astazi</h3>
 						<div class="questions-card margin-top-10">
-							<div class="question padding-10 margin-10">
-								<a>DAWNC</a>
-								<a>profesor - Buraga Sabin</a>
-								<a>14:00-16:00</a>
-								<a>sala C2 -> parter</a>
-								<button class="left"></button>
-							</div>
-							<div class="question padding-10 margin-10">
-								<a>DAWNC</a>
-								<a>profesor - Buraga Sabin</a>
-								<a>14:00-16:00</a>
-								<a>sala C2 -> parter</a>
-								<button class="left"></button>
-							</div>
-							<div class="question padding-10 margin-10">
-								<a>DAWNC</a>
-								<a>profesor - Buraga Sabin</a>
-								<a>14:00-16:00</a>
-								<a>sala C2 -> parter</a>
-								<button class="left"></button>
-							</div>
-							<div class="question padding-10 margin-10">
-								<a>DAWNC</a>
-								<a>profesor - Buraga Sabin</a>
-								<a>14:00-16:00</a>
-								<a>sala C2 -> parter</a>
-								<button class="left"></button>
-							</div>
+							
 
 						</div>
 					</div>
 					<div class="questions-section">
 						<h3>Cursuri terminate astazi</h3>
 						<div class="questions-card margin-top-10">
-							<div class="question padding-10 margin-10">
-								<a>DAWNC</a>
-								<a>profesor - Buraga Sabin</a>
-								<a>14:00-16:00</a>
-								<a>sala C2 -> parter</a>
-								<button class="finished"></button>
-							</div>
-							<div class="question padding-10 margin-10">
-								<a>DAWNC</a>
-								<a>profesor - Buraga Sabin</a>
-								<a>14:00-16:00</a>
-								<a>sala C2 -> parter</a>
-								<button class="finished"></button>
-							</div>
-							<div class="question padding-10 margin-10">
-								<a>DAWNC</a>
-								<a>profesor - Buraga Sabin</a>
-								<a>14:00-16:00</a>
-								<a>sala C2 -> parter</a>
-								<button class="finished"></button>
-							</div>
-							<div class="question padding-10 margin-10">
-								<a>DAWNC</a>
-								<a>profesor - Buraga Sabin</a>
-								<a>14:00-16:00</a>
-								<a>sala C2 -> parter</a>
-								<button class="finished"></button>
-							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -216,6 +149,7 @@
 		}
 	</script>
 	<script src="../../../javascript/menu-interaction.js"></script>
+	<script src="../../../javascript/home-student.js"></script>
 	<script src="../../../javascript/modal-interaction.js"></script>
 </body>
 
