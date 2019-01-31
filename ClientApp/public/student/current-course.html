@@ -16,9 +16,19 @@
 	<link rel="stylesheet" href="../styles/colors.css">
 	<link rel="stylesheet" href="../styles/student.css">
 
+	<script defer src="/__/firebase/5.8.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.8.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.8.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.8.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.8.1/firebase-storage.js"></script>
+    <script defer src="/__/firebase/5.8.1/firebase-firestore.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
 </head>
 
-<body>
+	<body onload="getCurrentCourse(); getQuestions();">
 	<div id="toolbar">
 		<section class="toolbar-page display-flex border-bottom white-background">
 			<section class="logo-section border-right">
@@ -81,41 +91,19 @@
 				<h3>C2</h3>
 			</div>
 			<div class="subtitle">profesor Sabin Buraga</div>
-			<div class="question"><input class="area" placeholder="Adauga o intrebare..." />
+			<div class="question" >
+				<form class="form-signin" onsubmit="addQuestion(); return false">
+						<input class="form-control" id="question_field" placeholder="Adauga o intrebare" required="" />
+						<input class="button" type="submit" value="Trimite">
+				</form>
+			</div>
 			</div>
 			<div class="questions-container">
 				<div class="prof-question">
 					<div class="prof-question-card">
 						<div class="title">
 							<h4>Pentru Studenti</h4>
-							<h3 class="title-center">Ce sunt microserviciile?</h3>
-							<h4>Varlan Cosmin</h4>
-						</div>
-						<div class="answers">
-							<div class="bttn">A. Niste servicii mici</div>
-							<div class="bttn">B. Niste servicii mici</div>
-							<div class="bttn">C. Niste servicii mici</div>
-							<div class="bttn">D. Niste servicii mici</div>
-						</div>
-					</div>
-
-					<div class="prof-question-card">
-						<div class="title">
-							<h4>Pentru Studenti</h4>
-							<h3 class="title-center">Ce sunt microserviciile?</h3>
-							<h4>Varlan Cosmin</h4>
-						</div>
-						<div class="answers">
-							<div class="bttn">A. Niste servicii mici</div>
-							<div class="bttn">B. Niste servicii mici</div>
-							<div class="bttn">C. Niste servicii mici</div>
-							<div class="bttn">D. Niste servicii mici</div>
-						</div>
-					</div>
-					<div class="prof-question-card">
-						<div class="title">
-							<h4>Pentru Studenti</h4>
-							<h3 class="title-center">Ce sunt microserviciile?</h3>
+							<div class="title-center"></div>
 							<h4>Varlan Cosmin</h4>
 						</div>
 						<div class="answers">
@@ -126,8 +114,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="student-question">
-					<div class="student-question-card">
+				<div id="courses" class="student-question">
+					<div  class="student-question-card">
 						<div class="title">
 							<h4>Pentru Profesor</h4>
 							<h3 class="title-center">Puteti repeta microserviciile?</h3>
@@ -206,7 +194,8 @@
 			});
 		}
 	</script>
-	<script src="../../../javascript/menu-interaction.js"></script>
+	<script src="../javascript/menu-interaction.js"></script>
+	<script src="../javascript/current-course.js"></script>
 </body>
 
 </html>

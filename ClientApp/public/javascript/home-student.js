@@ -1,11 +1,9 @@
 function getCourses() {
     const app = firebase.app();
     const db = firebase.firestore();
-    // var email = localStorage.getItem('email');
+    
     var courses = db.collection('courses');
-  
-  
-    // courses = courses.where('createdBy', '==', email);
+
     courses.onSnapshot(querySnapshot => {
       var coursesDOM = document.getElementById('courses');
       coursesDOM.innerHTML = '';
@@ -14,7 +12,6 @@ function getCourses() {
         element = doc.data();
         element.id = doc.id;
         var coursesDOM = document.getElementById('courses');
-        // items.forEach(element => {
         var courseDIV = document.createElement('div');
         courseDIV.classList.add('course', 'display-flex', 'flex-column', 'space-between', 'margin-10', 'padding-10');
         coursesDOM.appendChild(courseDIV);
