@@ -8,7 +8,6 @@ function getCourses() {
       var coursesDOM = document.getElementById('courses');
       coursesDOM.innerHTML = '';
       querySnapshot.forEach(function (doc) {
-        console.log(doc.data())
         element = doc.data();
         element.id = doc.id;
         var coursesDOM = document.getElementById('courses');

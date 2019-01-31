@@ -10,11 +10,9 @@ function getCourses() {
     var coursesDOM = document.getElementById('courses');
     coursesDOM.innerHTML = '';
     querySnapshot.forEach(function (doc) {
-      console.log(doc.data())
       element = doc.data();
       element.id = doc.id;
       var coursesDOM = document.getElementById('courses');
-      // items.forEach(element => {
       var courseDIV = document.createElement('div');
       courseDIV.classList.add('course', 'display-flex', 'flex-column', 'space-between', 'margin-10', 'padding-10');
       coursesDOM.appendChild(courseDIV);

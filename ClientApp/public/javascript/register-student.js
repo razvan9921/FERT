@@ -4,7 +4,6 @@ function createAccount(){
     var userFirstName = document.getElementById("firstName_field").value;
     var userLastName = document.getElementById("lastName_field").value;
 
-    console.log(userEmail,userPass,userFirstName,userLastName);
 
     firebase.auth().createUserWithEmailAndPassword(userEmail,userPass);
 
