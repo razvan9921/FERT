@@ -10,6 +10,14 @@ function getCurrentCourse() {
     });
 }
 
+function voteQuestion(votes,id){
+    const db = firebase.firestore();
+    const courseRef = db.collection('courses').doc('qZYonM6UT4KU51z2h9D9');
+
+    course.questions[id].votes =  course.questions[id].votes + 1
+    courseRef.set(course);
+}
+
 function addQuestion(){
     const app = firebase.app();
     const db = firebase.firestore();
@@ -21,6 +29,9 @@ function addQuestion(){
         'isValidated': false
     })
     courseRef.set(course)
+    .then( () => {
+        window.location.href = "/student/current-course.html?";
+      })
     
    }
 
@@ -35,7 +46,7 @@ function getQuestions() {
         coursesDOM.innerHTML = '';
         var elements =doc.data().questions;
         coursesDOM.innerHTML = '';
-        debugger
+        var id=0;
         elements.forEach( (element) => {
             
             var courseDIV = document.createElement('div');
@@ -67,6 +78,7 @@ function getQuestions() {
 
             var btn1 = document.createElement('div');
             btn1.classList.add('bttn2');
+            btn1.setAttribute('onclick','voteQuestion('+element.votes+','+id+')');
 
             answers.appendChild(btn1);
 
@@ -77,11 +89,7 @@ function getQuestions() {
 
             btn1.appendChild(p1);
             btn1.appendChild(p2);
-
-
-
-
-
+            id=id+1;
         });
     });
 }
