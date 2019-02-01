@@ -20,8 +20,6 @@
                 buna a cursului cu pricina.</li>
             <li>Profesor - cel ce face management-ul cursului si are grija ca totul sa decurga conform
                 normelor cursului.</li>
-            <li>Administrator - cel care inregistreaza salile in aplicatgie si gestioneaza conturile
-                studentilor si a profesorilor</li>
         </ul>
     </section>
     <h2 property="schema:user">Profesorul:</h2>
@@ -75,36 +73,10 @@
         <li>Are un orar unde va vedea lista cu toate cursurile unde este inclus.</li>
     </ul>
 
-    <h2 property="schema:user">Administatorul:</h2>
-    <ul property="schema:list">
-        <li property="schema:account">Are un cont si se autentifica in aplicatie.</li>
-        <li property="schema:login">Poate aproba conturile profesorilor din lista de asteptare. </li>
-        <li property="schema:login">Poate bloca conturile profesorilor. </li>
-        <li property="schema:login">Poate elimina conturile profesorilor din lista de conturi blocate. </li>
-        <li property="schema:courses">Poate aproba conturile studentilor din lista de asteptare.</li>
-        <li property="schema:courses">Poate bloca conturile studentilor.</li>
-        <li property="schema:courses">Poate elimina conturile studentilor din lista de conturi blocate.</li>
-        <li property="schema:question">Administreaza salile de curs. Poate adauga noi sali de curs, sterge sau modifica
-            sali existente.</li>
-        <li property="schema:question">Poate vedea lista de intrebari si le va putea vota pentru a aparea in lista
-            profesorului. </li>
-        <li>Va vedea intrebarile profesorului si va putea raspunde la acestea (nu se va putea
-            raspune anonim la intrebarile profesorului). </li>
-        <li>Are un orar unde va vedea lista cu toate cursurile unde este inclus.</li>
-    </ul>
-
     <h2 property="schema:blueprint">Design-ul aplicatiei:</h2>
     <h3 property="schema:blueprint">Design-ul meniului:</h3>
     <img class="img" src="menu.png">
 
-    <h3 property="schema:blueprint">Pagina administratorului pentru gestionarea studentilor:</h3>
-    <img class="img" src="admin1.png">
-
-    <h3 property="schema:blueprint">Pagina administratorului pentru gestionarea profesorilor:</h3>
-    <img class="img" src="admin2.png">
-
-    <h3 property="schema:blueprint">Pagina administratorului pentru gestionarea salilor de curs:</h3>
-    <img class="img" src="admin3.png">
 
     <h3 property="schema:blueprint">Pagina profesorului pentru Dashboard:</h3>
     <img class="img" src="profesor1.png">
@@ -177,13 +149,6 @@
         asemenea, profesorul poate adauga alti profesori coordonatori catre un curs.
     </p>
 
-    <p property="schema:user">Administratorul detine un cont si va putea accesa aplicatia. Acesta va avea la dispozitie 3 pagini. Va putea
-        accesa pagina destinata gestionarii studentilor. Acesta va putea aproba conturile in asteptare,
-        va putea bloca studenti sau va putea sterge conturile din lista de conturi blocate. Va putea accesa pagina
-        destinata gestionarii profesorilor unde va avea la dispozitie aceleasi actiuni. Administatorul este
-        responsabil si cu gestionarea salilor de curs. Acesta poate adauga noi sali de curs, poate sterge sau poate
-        modifica salile curente.
-    </p>
 
     <h3 property="schema:blueprint">Diagramele arhitecturale:</h3>
     <img class="img" src="architecture2.jpg">
@@ -193,9 +158,6 @@
     
     <h3 property="schema:blueprint">Profesori:</h3>
     <img class="img" src="architecture3.jpg">
-
-    <h3 property="schema:blueprint">Administrator:</h3>
-    <img class="img" src="architecture4.jpg">
     
 
     <h2 property="schema:database">Arhitecura Bazei de Date:</h2>
@@ -212,17 +174,6 @@
     </ul>
 
     <h3>Tabela Profesori:</h3>
-    <ul property="schema:list">
-        <li>id : INT [PK]</li>
-        <li>lastname: VARCHAR(30)</li>
-        <li>firstname: VARCHAR(30)</li>
-        <li>email : VARCHAR(50) [UNIQUE]</li>
-        <li>password : VARCHAR(32)</li>
-        <li>rights : INT</li>
-        <li>date_reqister TIMESTAMP</li>
-    </ul>
-
-    <h3>Tabela Administratori:</h3>
     <ul property="schema:list">
         <li>id : INT [PK]</li>
         <li>lastname: VARCHAR(30)</li>

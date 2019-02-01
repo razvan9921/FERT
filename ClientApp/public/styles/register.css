@@ -21,7 +21,8 @@
 }
 
 .form-signin .form-control {
-  width: 350px;
+  /* max-width: 350px; */
+  width: 100%;
   position: relative;
   font-size: 16px;
   height: auto;
@@ -42,16 +43,6 @@
   margin-bottom: 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-}
-
-.btn {
-  color: white;
-  height: 50px;
-  width: 100px;
-  border-radius: 10%;
-  background-color: #6699ff;
-  margin-left: 250px;
-  margin-top: -50px;
 }
 
 .check {
@@ -92,3 +83,6 @@
   background-color: #6699ff;
 }
 
+.button{
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
